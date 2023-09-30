@@ -128,6 +128,11 @@ def main():
             
             #verificação de teclas pressionadas
             if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    running = False
+                if event.key == pygame.K_r:
+                    score.reset()
+                    ball.reset()
                 if event.key == pygame.K_w:
                     left_paddle.speed = -PADDLE_SPEED
                 if event.key == pygame.K_s:
@@ -158,7 +163,7 @@ def main():
         if ball.rect.right >= SCREEN_SIZE[0]:
             score.update(0)
             ball.reset()
-            
+
         #desenho dos elementos
         draw(screen, left_paddle, right_paddle, ball, score)
 
